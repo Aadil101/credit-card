@@ -1,15 +1,15 @@
 user-data-dir: /path/to/Google/Chrome/ # path to Google Chrome folder goes here
 url:
-  login: https://www.dcu-online.org/tob/live/usp-core/app/login/consumer
-  mfa: https://www.dcu-online.org/tob/live/usp-core/app/mfa
-  home: https://www.dcu-online.org/tob/live/usp-core/app/home
-dcu:
+  login: https://www.website.com/login # login page 
+  mfa: https://www.website.com/mfa # mfa page
+  home: https://www.website.com/home # home page (ie. once you've logged in)
+cc:
   member-number: 1234567 # seven digit member number goes here
   password: password # password goes here
 email: 
   address: foobarbaz@gmail.com # gmail address goes here
   password: password # password goes here
-from-account: Free Checking 2 # checking account name goes here
-pool-account: Primary Savings 1 # account name from which extra funds will be taken from if "from-account" is running low
-to-account: DCU Visa 141 # credit card account name goes here
+from-account: Free Checking 123 # checking account name goes here
+pool-account: Primary Savings 456 # account name from which extra funds will be taken from if "from-account" is running low
+to-account: Visa 789 # credit card account name goes here
 from-account-keep: 100.00 # minimum amount in dollars required to remain in "from-account" at all times
