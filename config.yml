@@ -6,6 +6,7 @@ url:
 cc:
   member-number: 1234567 # seven digit member number goes here
   password: password # password goes here
+  mfa-email: cc@cc.org # email address from which your CC provider notifies you
 email: 
   address: foobarbaz@gmail.com # gmail address goes here
   password: password # password goes here

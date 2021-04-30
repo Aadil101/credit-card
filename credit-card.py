@@ -31,10 +31,10 @@ def login():
     def search(client, key, value): 
         result, _bytes = client.search(None, key, '"{}"'.format(value))
         return _bytes
-    # login to DCU
+    # login to CC
     driver.get(config['url']['login']); sleep(5) 
-    driver.find_element_by_id('username').send_keys(config['dcu']['member-number']); sleep(5) 
-    driver.find_element_by_id('password').send_keys(config['dcu']['password']); sleep(5) 
+    driver.find_element_by_id('username').send_keys(config['cc']['member-number']); sleep(5) 
+    driver.find_element_by_id('password').send_keys(config['cc']['password']); sleep(5) 
     driver.find_element_by_id('loginButton').send_keys(Keys.RETURN); sleep(10)
     if driver.current_url == config['url']['mfa']:
         driver.find_element_by_name('sendOTP').send_keys(Keys.RETURN); sleep(60)
@@ -42,7 +42,7 @@ def login():
         client = imaplib.IMAP4_SSL('imap.gmail.com') 
         client.login(config['email']['address'], config['email']['password']) 
         _ = client.select('Inbox') 
-        uids = search(client, 'FROM', 'dcu@dcu.org')[0].split()
+        uids = search(client, 'FROM', config['cc']['mfa-email'])[0].split()
         _, latest_email_bytes = client.fetch(uids[-1], '(RFC822)')
         latest_email_text = str(latest_email_bytes[0][1])
         soup = BeautifulSoup(latest_email_text, 'lxml')
