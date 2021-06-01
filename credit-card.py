@@ -65,7 +65,7 @@ def get_new_balance():
     except:
         driver.find_element_by_class_name('navbar-toggle').send_keys(Keys.RETURN); sleep(5)
         driver.find_element_by_link_text("e-Statements").click(); sleep(5)
-    driver.switch_to.frame(driver.find_element_by_tag_name("iframe")); sleep(5)
+    driver.switch_to.frame(driver.find_element_by_tag_name("iframe")); sleep(10)
     driver.find_elements_by_xpath('//input[@type="submit"]')[1].click(); sleep(5)
     table = driver.find_element_by_xpath("//table[@summary='Summary of Account Activity']")
     html = table.get_attribute('outerHTML')
