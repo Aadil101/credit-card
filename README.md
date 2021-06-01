@@ -27,6 +27,11 @@ Please fill in `config.yml` accordingly:
 - `to-account`: Account name (eg. credit card) which you'd like to pay off monthly.
 - `from-account-keep`: Amount you'd like to keep in `from-account` at all times.
 
+As a note of caution, you may have to enable "less secure app access" for your Gmail account. To do so:
+1. Go [here](https://myaccount.google.com/lesssecureapps?pli=1).
+2. Gmail Settings -> Forwarding and POP / IMAP -> IMAP Acess to Enable IMAP.
+
+
 You may want to run this program monthly on your machine. If you're running MacOS or Linux, this can be done by running a `cron` job. Cron jobs are nice in that you can use them to schedule running a program every however many seconds/minutes/days/months etc. Make sure your machine is ready to run cron jobs by following the helpful instructions given [here](https://blog.bejarano.io/fixing-cron-jobs-in-mojave/).
 
 You can create a cron job by typing `crontab -e` in your terminal, which should open for you an editor. In this editor, you want to accomplish something like this: every first day of each month (which we indicate using the cron command `0 0 1 * *`) go to this repo on our machine (for me, it is located at `/my/working/directory/`) and run the python script `credit-card.py` (turns out my Python 3.x path is `/usr/bin/python`). Putting it all together, here's what I have in my editor:
