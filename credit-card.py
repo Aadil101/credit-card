@@ -5,6 +5,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
+from webdriver_manager.chrome import ChromeDriverManager
 import imaplib, email
 from bs4 import BeautifulSoup
 import re
@@ -23,7 +24,7 @@ options = webdriver.ChromeOptions()
 options.add_argument("user-data-dir={}".format(config['user-data-dir']))
 
 # driver
-driver = webdriver.Chrome(executable_path='./chromedriver', options=options); sleep(5)
+driver = webdriver.Chrome(ChromeDriverManager().install(), options=options); sleep(5)
 
 # login
 def login():

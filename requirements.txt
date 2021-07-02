@@ -4,3 +4,4 @@ lxml
 pandas
 pyyaml
 selenium
+webdriver-manager
