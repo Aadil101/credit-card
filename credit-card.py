@@ -13,6 +13,7 @@ from time import sleep
 import pandas as pd
 import math
 import yaml
+import sys
 
 # options
 with open('config.yml', 'r') as stream:
@@ -41,7 +42,11 @@ def login():
         driver.find_element_by_name('sendOTP').send_keys(Keys.RETURN); sleep(60)
         # login to Gmail
         client = imaplib.IMAP4_SSL('imap.gmail.com') 
-        client.login(config['email']['address'], config['email']['password']) 
+        try:
+            client.login(config['email']['address'], config['email']['password']) 
+        except:
+            print('Oops. You may have to enable "less secure app access" for your Gmail account. Please see README.md for instructions')
+            sys.exit(1)
         _ = client.select('Inbox') 
         uids = search(client, 'FROM', config['cc']['mfa-email'])[0].split()
         _, latest_email_bytes = client.fetch(uids[-1], '(RFC822)')
@@ -56,7 +61,8 @@ def login():
     if driver.current_url == config['url']['home']:
         return
     else:
-        print('uh-oh')
+        print("Oops. Driver's current URL does not match home URL you provided in config.yml")
+
 login()
 
 # get new monthly balance
