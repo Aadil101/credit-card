@@ -35,9 +35,9 @@ def login():
         return _bytes
     # login to CC
     driver.get(config['url']['login']); sleep(5) 
-    driver.find_element_by_id('username').send_keys(config['cc']['member-number']); sleep(5) 
-    driver.find_element_by_id('password').send_keys(config['cc']['password']); sleep(5) 
-    driver.find_element_by_id('loginButton').send_keys(Keys.RETURN); sleep(10)
+    driver.find_element_by_name('userid').send_keys(config['cc']['member-number']); sleep(5) 
+    driver.find_element_by_name('password').send_keys(config['cc']['password']); sleep(5) 
+    driver.find_element_by_xpath("//button[@type='submit']").send_keys(Keys.RETURN); sleep(10)
     if driver.current_url == config['url']['mfa']:
         driver.find_element_by_name('sendOTP').send_keys(Keys.RETURN); sleep(60)
         # login to Gmail
